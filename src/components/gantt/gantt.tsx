@@ -25,11 +25,11 @@ import { removeHiddenTasks, sortTasks } from "../../helpers/other-helper";
 import styles from "./gantt.module.css";
 
 const COLUMNLIST = [
-  { columnName: 'Code', isVisible: true, columnWithArrow: true, toShow: (task:Task) => {return task.id} },
-  { columnName: 'Nom', isVisible: true, toShow: (task:Task) => {return task.name} },
-  { columnName: 'Début', isVisible: true, isDate:true, toShow: (task:Task) => {return task.start} },
-  { columnName: 'Fin', isVisible: true, isDate:true, toShow: (task:Task) => {return task.end} },
-  { columnName: 'Assigné à', isVisible: true, toShow: (task:Task) => {return task.assignedUser} },
+  { columnName: 'Code', headerCellClass: '', cellClass: '', isVisible: true, columnWithArrow: true, toShow: (task:Task) => {return task.id} },
+  { columnName: 'Nom', headerCellClass: '', cellClass: '',  isVisible: true, toShow: (task:Task) => {return task.name} },
+  { columnName: 'Début', headerCellClass: '', cellClass: '',  isVisible: true, isDate:true, toShow: (task:Task) => {return task.start} },
+  { columnName: 'Fin', headerCellClass: '', cellClass: '',  isVisible: true, isDate:true, toShow: (task:Task) => {return task.end} },
+  { columnName: 'Assigné à', headerCellClass: '', cellClass: '',  isVisible: true, toShow: (task:Task) => {return task.assignedUser} },
 ];
 
 export const Gantt: React.FunctionComponent<GanttProps> = ({
