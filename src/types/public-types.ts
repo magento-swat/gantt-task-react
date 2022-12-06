@@ -153,6 +153,8 @@ export interface StylingOption {
 
 export type ColumnVisibility = {
   columnName: string;
+  headerCellClass: string;
+  cellClass: string;
   isVisible: boolean;
   isDate?: boolean;
   readonly toShow:(task: Task) => string | undefined | Date;

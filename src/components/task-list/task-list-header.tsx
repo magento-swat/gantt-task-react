@@ -8,9 +8,8 @@ export const TaskListHeaderDefault: React.FC<{
   fontFamily: string;
   fontSize: string;
   columnList: ColumnVisibility[];
-}> = ({ headerHeight, fontFamily, fontSize, rowWidth, columnList}) => {
-
-
+  headerTitle: string;
+}> = ({ headerHeight, fontFamily, fontSize, rowWidth, columnList, headerTitle}) => {
   return (
     <div
       className={styles.ganttTable}
@@ -19,6 +18,9 @@ export const TaskListHeaderDefault: React.FC<{
         fontSize: fontSize,
       }}
     >
+      <div>
+        <span>{headerTitle}</span>
+      </div>
       <div
         className={styles.ganttTable_Header}
         style={{
@@ -29,7 +31,7 @@ export const TaskListHeaderDefault: React.FC<{
           if(columnVisibility.isVisible === true) {
             return (
               <div
-                className={styles.ganttTable_HeaderItem}
+                className={styles.ganttTable_HeaderItem + ' ' + columnVisibility.headerCellClass}
                 style={{
                   minWidth: rowWidth,
                 }}
@@ -44,89 +46,5 @@ export const TaskListHeaderDefault: React.FC<{
         })}
       </div>
     </div>
-
-    // <div>
-    //   {columnList.map(columnVisibility => {
-    //     return (
-    //   <div
-    //   className={styles.ganttTable_HeaderItem}
-    //   style={{
-    //     minWidth: rowWidth,
-    //   }}
-    // >
-    //   &nbsp;Nom
-    // </div>
-    // <div
-    //   className={styles.ganttTable_HeaderSeparator}
-    //   style={{
-    //     height: headerHeight * 0.5,
-    //     marginTop: headerHeight * 0.2,
-    //   }}
-    // />
-    //     );
-    //   })}
-    // </div>
-
-    // <div
-    //   className={styles.ganttTable}
-    //   style={{
-    //     fontFamily: fontFamily,
-    //     fontSize: fontSize,
-    //   }}
-    // >
-    //   <div
-    //     className={styles.ganttTable_Header}
-    //     style={{
-    //       height: headerHeight - 2,
-    //     }}
-    //   >
-    //     <div
-    //       className={styles.ganttTable_HeaderItem}
-    //       style={{
-    //         minWidth: rowWidth,
-    //       }}
-    //     >
-    //       &nbsp;Nom
-    //     </div>
-    //     <div
-    //       className={styles.ganttTable_HeaderSeparator}
-    //       style={{
-    //         height: headerHeight * 0.5,
-    //         marginTop: headerHeight * 0.2,
-    //       }}
-    //     />
-    //     <div
-    //       className={styles.ganttTable_HeaderItem}
-    //       style={{
-    //         minWidth: rowWidth,
-    //       }}
-    //     >
-    //       &nbsp;Début
-    //     </div>
-    //     <div
-    //       className={styles.ganttTable_HeaderSeparator}
-    //       style={{
-    //         height: headerHeight * 0.5,
-    //         marginTop: headerHeight * 0.25,
-    //       }}
-    //     />
-    //     <div
-    //       className={styles.ganttTable_HeaderItem}
-    //       style={{
-    //         minWidth: rowWidth,
-    //       }}
-    //     >
-    //       &nbsp;Fin
-    //     </div>
-    //     <div
-    //       className={styles.ganttTable_HeaderItem}
-    //       style={{
-    //         minWidth: rowWidth,
-    //       }}
-    //     >
-    //       &nbsp;Assigné à
-    //     </div>
-    //   </div>
-    // </div>
   );
 };

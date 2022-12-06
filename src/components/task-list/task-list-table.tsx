@@ -75,7 +75,7 @@ export const TaskListTableDefault: React.FC<{
                   if (columnVisibility.columnWithArrow === true) {
                     return (
                       <div
-                        className={styles.taskListCell}
+                        className={styles.taskListCell + ' ' + columnVisibility.cellClass}
                         style={{
                           minWidth: rowWidth,
                           maxWidth: rowWidth,
@@ -102,13 +102,13 @@ export const TaskListTableDefault: React.FC<{
                   } else {
                     return (
                       <div
-                        className={styles.taskListCell}
+                        className={styles.taskListCell + ' ' + columnVisibility.cellClass}
                         style={{
                           minWidth: rowWidth,
                           maxWidth: rowWidth,
                         }}
                       >
-                        &nbsp;{ columnVisibility.isDate === true ? toLocaleDateString((columnVisibility.toShow(t) as Date), dateTimeOptions) : columnVisibility.toShow(t)} 
+                        &nbsp;{ columnVisibility.isDate === true ? toLocaleDateString((columnVisibility.toShow(t) as Date), dateTimeOptions) : columnVisibility.toShow(t)}
                       </div>
                     );
                   }
@@ -119,7 +119,7 @@ export const TaskListTableDefault: React.FC<{
               })}
             </div>
 
-            
+
 
             // <div
             //   className={styles.taskListTableRow}
