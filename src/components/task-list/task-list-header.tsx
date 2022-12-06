@@ -8,8 +8,6 @@ export const TaskListHeaderDefault: React.FC<{
   fontFamily: string;
   fontSize: string;
   columnList: ColumnVisibility[];
-  // headerTitle: string;
-// }> = ({ headerHeight, fontFamily, fontSize, rowWidth, columnList, headerTitle}) => {
 }> = ({ headerHeight, fontFamily, fontSize, rowWidth, columnList}) => {
   return (
     <div
@@ -19,9 +17,6 @@ export const TaskListHeaderDefault: React.FC<{
         fontSize: fontSize,
       }}
     >
-      {/*<div>*/}
-      {/*  <span>{headerTitle}</span>*/}
-      {/*</div>*/}
       <div
         className={styles.ganttTable_Header}
         style={{

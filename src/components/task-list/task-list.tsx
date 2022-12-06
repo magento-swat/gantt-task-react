@@ -25,7 +25,6 @@ export type TaskListProps = {
     fontFamily: string;
     fontSize: string;
     columnList: ColumnVisibility[];
-    // headerTitle: string;
   }>;
   TaskListTable: React.FC<{
     rowHeight: number;
@@ -73,7 +72,6 @@ export const TaskList: React.FC<TaskListProps> = ({
     fontSize,
     rowWidth,
     columnList,
-    // headerTitle,
   };
   const selectedTaskId = selectedTask ? selectedTask.id : "";
   const tableProps = {
