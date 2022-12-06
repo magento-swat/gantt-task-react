@@ -134,7 +134,7 @@ export interface StylingOption {
     rowWidth: string;
     fontFamily: string;
     fontSize: string;
-    headerTitle: string;
+    // headerTitle: string;
   }>;
   TaskListTable?: React.FC<{
     rowHeight: number;
