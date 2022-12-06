@@ -73,6 +73,7 @@ export const TaskList: React.FC<TaskListProps> = ({
     fontSize,
     rowWidth,
     columnList,
+    headerTitle,
   };
   const selectedTaskId = selectedTask ? selectedTask.id : "";
   const tableProps = {
