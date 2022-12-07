@@ -1,0 +1,9 @@
+# For more information: https://laravel.com/docs/sail
+version: '3'
+services:
+  gantt-example:
+    build: .
+    ports:
+      - "3101:3101"
+    volumes:
+      - ../:/app:delegated
