@@ -24,7 +24,7 @@ export const TaskListHeaderDefault: React.FC<{
         }}
       >
         {columnList.map(columnVisibility => {
-          if(columnVisibility.isVisible === true) {
+          if(columnVisibility.isVisible || columnVisibility.isVisible === undefined) {
             return (
               <div
                 className={styles.ganttTable_HeaderItem + ' ' + columnVisibility.headerCellClass}

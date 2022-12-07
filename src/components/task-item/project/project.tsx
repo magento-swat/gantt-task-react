@@ -28,6 +28,12 @@ export const Project: React.FC<TaskItemProps> = ({ task, isSelected }) => {
     task.y + task.height / 2 - 1,
   ].join(",");
   let showTriangles = task.barCornerRadius < 6;
+  let showAvatar = false;
+  if (task.assignedUser !== undefined) {
+    showAvatar = true;
+  }
+  let avatarX = task.x1 + 30;
+  let avatarY = task.y + task.height / 2 - 10;
   return (
     <g tabIndex={0} className={styles.projectWrapper}>
       <rect
@@ -59,6 +65,7 @@ export const Project: React.FC<TaskItemProps> = ({ task, isSelected }) => {
         points={projectRightTriangle}
         fill={barColor}
         />}
+      {showAvatar && <image x={avatarX} y={avatarY} href="https://www.nps.gov/maps/tools/symbol-library/assets/img/volleyball-black-22.svg" height="22px" width="22px" preserveAspectRatio="none"/>}
     </g>
   );
 };

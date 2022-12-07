@@ -153,15 +153,15 @@ export interface StylingOption {
 
 export type ColumnVisibility = {
   columnName: string;
-  headerCellClass: string;
-  cellClass: string;
+  headerCellClass?: string;
+  cellClass?: string;
   isVisible: boolean;
   isDate?: boolean;
-  readonly toShow:(task: Task) => string | undefined | Date;
+  toShow:(task: Task) => string | undefined | Date;
   columnWithArrow?: boolean;
 };
 
 export interface GanttProps extends EventOption, DisplayOption, StylingOption {
   tasks: Task[];
-  columnList: ColumnVisibility[];
+  columnList?: ColumnVisibility[];
 }
