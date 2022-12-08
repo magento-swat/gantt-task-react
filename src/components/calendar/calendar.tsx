@@ -334,15 +334,17 @@ export const Calendar: React.FC<CalendarProps> = ({
       [topValues, bottomValues] = getCalendarValuesForHour();
   }
   return (
-    <g className="calendar" fontSize={fontSize} fontFamily={fontFamily}>
-      <rect
-        x={0}
-        y={0}
-        width={columnWidth * dateSetup.dates.length}
-        height={headerHeight}
-        className={styles.calendarHeader}
-      />
-      {bottomValues} {topValues}
-    </g>
+    <div className="calendarWrapper">
+      <g className="calendar" fontSize={fontSize} fontFamily={fontFamily}>
+        <rect
+          x={0}
+          y={0}
+          width={columnWidth * dateSetup.dates.length}
+          height={headerHeight}
+          className={styles.calendarHeader}
+        />
+        {bottomValues} {topValues}
+      </g>
+    </div>
   );
 };
