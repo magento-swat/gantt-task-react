@@ -11,6 +11,7 @@ export type GridBodyProps = {
   columnWidth: number;
   todayColor: string;
   rtl: boolean;
+  marginTop: number;
 };
 export const GridBody: React.FC<GridBodyProps> = ({
   tasks,
@@ -20,6 +21,7 @@ export const GridBody: React.FC<GridBodyProps> = ({
   columnWidth,
   todayColor,
   rtl,
+  marginTop,
 }) => {
   let y = 0;
   const gridRows: ReactChild[] = [];
@@ -54,7 +56,7 @@ export const GridBody: React.FC<GridBodyProps> = ({
         className={styles.gridRowLine}
       />
     );
-    y += rowHeight;
+    y += rowHeight + marginTop;
   }
 
   const now = new Date();

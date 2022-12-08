@@ -35,6 +35,7 @@ const COLUMNLIST = [
 export const Gantt: React.FunctionComponent<GanttProps> = ({
   tasks,
   headerHeight = 50,
+  marginTop = 0,
   columnWidth = 60,
   listCellWidth = "155px",
   rowHeight = 50,
@@ -404,6 +405,7 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
     dates: dateSetup.dates,
     todayColor,
     rtl,
+    marginTop,
   };
   const calendarProps: CalendarProps = {
     dateSetup,

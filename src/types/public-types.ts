@@ -121,6 +121,7 @@ export interface StylingOption {
   projectBackgroundSelectedColor?: string;
   milestoneBackgroundColor?: string;
   milestoneBackgroundSelectedColor?: string;
+  marginTop?: number;
   arrowColor?: string;
   arrowIndent?: number;
   todayColor?: string;
