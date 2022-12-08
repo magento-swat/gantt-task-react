@@ -23,7 +23,7 @@ export const GridBody: React.FC<GridBodyProps> = ({
   rtl,
   marginTop,
 }) => {
-  let y = 0;
+  let y = marginTop;
   const gridRows: ReactChild[] = [];
   const rowLines: ReactChild[] = [
     <line
@@ -71,7 +71,7 @@ export const GridBody: React.FC<GridBodyProps> = ({
         x1={tickX}
         y1={0}
         x2={tickX}
-        y2={y + marginTop}
+        y2={y}
         className={styles.gridTick}
       />
     );
@@ -94,7 +94,7 @@ export const GridBody: React.FC<GridBodyProps> = ({
           x={tickX}
           y={0}
           width={columnWidth}
-          height={y + marginTop}
+          height={y}
           fill={todayColor}
         />
       );
