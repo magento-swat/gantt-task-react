@@ -56,7 +56,7 @@ export const GridBody: React.FC<GridBodyProps> = ({
         className={styles.gridRowLine}
       />
     );
-    y += rowHeight + marginTop;
+    y += rowHeight;
   }
 
   const now = new Date();
@@ -71,7 +71,7 @@ export const GridBody: React.FC<GridBodyProps> = ({
         x1={tickX}
         y1={0}
         x2={tickX}
-        y2={y}
+        y2={y + marginTop}
         className={styles.gridTick}
       />
     );
