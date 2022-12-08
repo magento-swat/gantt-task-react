@@ -334,8 +334,7 @@ export const Calendar: React.FC<CalendarProps> = ({
       [topValues, bottomValues] = getCalendarValuesForHour();
   }
   return (
-    <div className="calendarWrapper">
-      <g className="calendar" fontSize={fontSize} fontFamily={fontFamily}>
+    <g className="calendar" fontSize={fontSize} fontFamily={fontFamily}>
         <rect
           x={0}
           y={0}
@@ -344,7 +343,6 @@ export const Calendar: React.FC<CalendarProps> = ({
           className={styles.calendarHeader}
         />
         {bottomValues} {topValues}
-      </g>
-    </div>
+    </g>
   );
 };
