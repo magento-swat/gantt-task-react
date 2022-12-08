@@ -94,7 +94,7 @@ export const GridBody: React.FC<GridBodyProps> = ({
           x={tickX}
           y={0}
           width={columnWidth}
-          height={y}
+          height={y + marginTop}
           fill={todayColor}
         />
       );
