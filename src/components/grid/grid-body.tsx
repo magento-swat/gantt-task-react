@@ -36,11 +36,18 @@ export const GridBody: React.FC<GridBodyProps> = ({
     />,
   ];
   let i = 0;
+  let tasksLength = tasks.length;
   for (const task of tasks) {
     let yTmp = y;
+    let tmpHeight = rowHeight;
     if (i === 0) {
       //set first row rectangle y to 0 to fill first row completely including marginTop
       yTmp = 0;
+      tmpHeight = rowHeight + marginTop;
+    }
+    // set last row to fill margin
+    if (i === (tasksLength - 1)) {
+      tmpHeight = rowHeight + marginTop;
     }
     i++;
     gridRows.push(
@@ -49,7 +56,7 @@ export const GridBody: React.FC<GridBodyProps> = ({
         x="0"
         y={yTmp}
         width={svgWidth}
-        height={rowHeight}
+        height={tmpHeight}
         className={styles.gridRow}
       />
     );

@@ -475,7 +475,7 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
           gridProps={gridProps}
           calendarProps={calendarProps}
           barProps={barProps}
-          ganttHeight={ganttHeight}
+          ganttHeight={ganttHeight + marginTop * 2 }
           scrollY={scrollY}
           scrollX={scrollX}
         />
