@@ -66,7 +66,7 @@ export const TaskGantt: React.FC<TaskGanttProps> = ({
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width={gridProps.svgWidth}
-            height={barProps.rowHeight * barProps.tasks.length}
+            height={barProps.rowHeight * barProps.tasks.length + 2 * barProps.marginTop}
             fontFamily={barProps.fontFamily}
             ref={ganttSVGRef}
           >

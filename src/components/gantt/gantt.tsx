@@ -433,6 +433,7 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
     arrowIndent,
     svgWidth,
     rtl,
+    marginTop,
     setGanttEvent,
     setFailedTask,
     setSelectedTask: handleSelectedTask,
