@@ -462,7 +462,6 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
     TaskListHeader,
     TaskListTable,
   };
-  let tmpGanttHeight = ganttHeight + marginTop;
   return (
     <div>
       <div
@@ -476,7 +475,7 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
           gridProps={gridProps}
           calendarProps={calendarProps}
           barProps={barProps}
-          ganttHeight={tmpGanttHeight}
+          ganttHeight={ganttHeight}
           scrollY={scrollY}
           scrollX={scrollX}
         />
