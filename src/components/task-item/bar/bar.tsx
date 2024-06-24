@@ -35,6 +35,7 @@ export const Bar: React.FC<TaskItemProps> = ({
         onMouseDown={e => {
           isDateChangeable && onEventStart("move", task, e);
         }}
+        assignedUser={task.assignedUser}
       />
       <g className="handleGroup">
         {isDateChangeable && (

@@ -27,7 +27,13 @@ export const Project: React.FC<TaskItemProps> = ({ task, isSelected }) => {
     task.x2 - 15,
     task.y + task.height / 2 - 1,
   ].join(",");
-
+  let showTriangles = task.barCornerRadius < 6;
+  let showAvatar = false;
+  if (task.assignedUser !== undefined) {
+    showAvatar = true;
+  }
+  let avatarX = task.x1 + 30;
+  let avatarY = task.y + task.height / 2 - 10;
   return (
     <g tabIndex={0} className={styles.projectWrapper}>
       <rect
@@ -49,26 +55,17 @@ export const Project: React.FC<TaskItemProps> = ({ task, isSelected }) => {
         rx={task.barCornerRadius}
         fill={processColor}
       />
-      <rect
-        fill={barColor}
-        x={task.x1}
-        width={projectWith}
-        y={task.y}
-        height={task.height / 2}
-        rx={task.barCornerRadius}
-        ry={task.barCornerRadius}
-        className={styles.projectTop}
-      />
-      <polygon
+      {showTriangles && <polygon
         className={styles.projectTop}
         points={projectLeftTriangle}
         fill={barColor}
-      />
-      <polygon
+      />}
+      {showTriangles && <polygon
         className={styles.projectTop}
         points={projectRightTriangle}
         fill={barColor}
-      />
+        />}
+      {showAvatar && <image x={avatarX} y={avatarY} href="https://www.nps.gov/maps/tools/symbol-library/assets/img/volleyball-black-22.svg" height="22px" width="22px" preserveAspectRatio="none"/>}
     </g>
   );
 };

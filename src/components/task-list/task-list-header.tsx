@@ -1,4 +1,5 @@
 import React from "react";
+import { ColumnVisibility } from "../../types/public-types";
 import styles from "./task-list-header.module.css";
 
 export const TaskListHeaderDefault: React.FC<{
@@ -6,7 +7,8 @@ export const TaskListHeaderDefault: React.FC<{
   rowWidth: string;
   fontFamily: string;
   fontSize: string;
-}> = ({ headerHeight, fontFamily, fontSize, rowWidth }) => {
+  columnList: ColumnVisibility[];
+}> = ({ headerHeight, fontFamily, fontSize, rowWidth, columnList}) => {
   return (
     <div
       className={styles.ganttTable}
@@ -21,44 +23,23 @@ export const TaskListHeaderDefault: React.FC<{
           height: headerHeight - 2,
         }}
       >
-        <div
-          className={styles.ganttTable_HeaderItem}
-          style={{
-            minWidth: rowWidth,
-          }}
-        >
-          &nbsp;Name
-        </div>
-        <div
-          className={styles.ganttTable_HeaderSeparator}
-          style={{
-            height: headerHeight * 0.5,
-            marginTop: headerHeight * 0.2,
-          }}
-        />
-        <div
-          className={styles.ganttTable_HeaderItem}
-          style={{
-            minWidth: rowWidth,
-          }}
-        >
-          &nbsp;From
-        </div>
-        <div
-          className={styles.ganttTable_HeaderSeparator}
-          style={{
-            height: headerHeight * 0.5,
-            marginTop: headerHeight * 0.25,
-          }}
-        />
-        <div
-          className={styles.ganttTable_HeaderItem}
-          style={{
-            minWidth: rowWidth,
-          }}
-        >
-          &nbsp;To
-        </div>
+        {columnList.map(columnVisibility => {
+          if(columnVisibility.isVisible || columnVisibility.isVisible === undefined) {
+            return (
+              <div
+                className={styles.ganttTable_HeaderItem + ' ' + columnVisibility.headerCellClass}
+                style={{
+                  minWidth: rowWidth,
+                }}
+              >
+                &nbsp;{columnVisibility.columnName}
+              </div>
+            )
+          }
+          else {
+            return(<div></div>);
+          }
+        })}
       </div>
     </div>
   );

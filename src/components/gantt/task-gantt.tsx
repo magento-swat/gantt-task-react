@@ -43,14 +43,16 @@ export const TaskGantt: React.FC<TaskGanttProps> = ({
       ref={verticalGanttContainerRef}
       dir="ltr"
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width={gridProps.svgWidth}
-        height={calendarProps.headerHeight}
-        fontFamily={barProps.fontFamily}
-      >
-        <Calendar {...calendarProps} />
-      </svg>
+      <div className="calendarWrapper">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width={gridProps.svgWidth}
+          height={calendarProps.headerHeight}
+          fontFamily={barProps.fontFamily}
+        >
+          <Calendar {...calendarProps} />
+        </svg>
+      </div>
       <div
         ref={horizontalContainerRef}
         className={styles.horizontalContainer}
@@ -60,16 +62,18 @@ export const TaskGantt: React.FC<TaskGanttProps> = ({
             : { width: gridProps.svgWidth }
         }
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width={gridProps.svgWidth}
-          height={barProps.rowHeight * barProps.tasks.length}
-          fontFamily={barProps.fontFamily}
-          ref={ganttSVGRef}
-        >
-          <Grid {...gridProps} />
-          <TaskGanttContent {...newBarProps} />
-        </svg>
+        <div className="contentGridWrapper">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width={gridProps.svgWidth}
+            height={barProps.rowHeight * barProps.tasks.length + 2 * barProps.marginTop}
+            fontFamily={barProps.fontFamily}
+            ref={ganttSVGRef}
+          >
+            <Grid {...gridProps} />
+            <TaskGanttContent {...newBarProps} />
+          </svg>
+        </div>
       </div>
     </div>
   );

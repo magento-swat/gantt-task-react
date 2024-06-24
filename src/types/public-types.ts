@@ -30,6 +30,18 @@ export interface Task {
   dependencies?: string[];
   hideChildren?: boolean;
   displayOrder?: number;
+  assignedUser?: string;
+  approver?: string;
+  informed?: string;
+  duration?: number;
+  description?: string;
+  parent?: string;
+  estimatedAmount?: number;
+  spentAmount?: number;
+  code?: string;
+  createdBy?: string;
+  isCompleted?: boolean;
+
 }
 
 export interface EventOption {
@@ -109,6 +121,7 @@ export interface StylingOption {
   projectBackgroundSelectedColor?: string;
   milestoneBackgroundColor?: string;
   milestoneBackgroundSelectedColor?: string;
+  marginTop?: number;
   arrowColor?: string;
   arrowIndent?: number;
   todayColor?: string;
@@ -139,6 +152,17 @@ export interface StylingOption {
   }>;
 }
 
+export type ColumnVisibility = {
+  columnName: string;
+  headerCellClass?: string;
+  cellClass?: string;
+  isVisible: boolean;
+  isDate?: boolean;
+  toShow:(task: Task) => string | undefined | Date;
+  columnWithArrow?: boolean;
+};
+
 export interface GanttProps extends EventOption, DisplayOption, StylingOption {
   tasks: Task[];
+  columnList?: ColumnVisibility[];
 }

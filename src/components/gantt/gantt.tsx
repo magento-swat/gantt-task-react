@@ -24,9 +24,18 @@ import { HorizontalScroll } from "../other/horizontal-scroll";
 import { removeHiddenTasks, sortTasks } from "../../helpers/other-helper";
 import styles from "./gantt.module.css";
 
+const COLUMNLIST = [
+  { columnName: 'Code', headerCellClass: '', cellClass: '', isVisible: true, columnWithArrow: true, toShow: (task:Task) => {return task.id} },
+  { columnName: 'Nom', headerCellClass: '', cellClass: '',  isVisible: true, toShow: (task:Task) => {return task.name} },
+  { columnName: 'Début', headerCellClass: '', cellClass: '',  isVisible: true, isDate:true, toShow: (task:Task) => {return task.start} },
+  { columnName: 'Fin', headerCellClass: '', cellClass: '',  isVisible: true, isDate:true, toShow: (task:Task) => {return task.end} },
+  { columnName: 'Assigné à', headerCellClass: '', cellClass: '',  isVisible: true, toShow: (task:Task) => {return task.assignedUser} },
+];
+
 export const Gantt: React.FunctionComponent<GanttProps> = ({
   tasks,
   headerHeight = 50,
+  marginTop = 0,
   columnWidth = 60,
   listCellWidth = "155px",
   rowHeight = 50,
@@ -58,6 +67,7 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
   TooltipContent = StandardTooltipContent,
   TaskListHeader = TaskListHeaderDefault,
   TaskListTable = TaskListTableDefault,
+  columnList = COLUMNLIST,
   onDateChange,
   onProgressChange,
   onDoubleClick,
@@ -139,7 +149,8 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
         projectBackgroundColor,
         projectBackgroundSelectedColor,
         milestoneBackgroundColor,
-        milestoneBackgroundSelectedColor
+        milestoneBackgroundSelectedColor,
+        marginTop,
       )
     );
   }, [
@@ -395,6 +406,7 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
     dates: dateSetup.dates,
     todayColor,
     rtl,
+    marginTop,
   };
   const calendarProps: CalendarProps = {
     dateSetup,
@@ -421,6 +433,7 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
     arrowIndent,
     svgWidth,
     rtl,
+    marginTop,
     setGanttEvent,
     setFailedTask,
     setSelectedTask: handleSelectedTask,
@@ -444,6 +457,7 @@ export const Gantt: React.FunctionComponent<GanttProps> = ({
     horizontalContainerClass: styles.horizontalContainer,
     selectedTask,
     taskListRef,
+    columnList,
     setSelectedTask: handleSelectedTask,
     onExpanderClick: handleExpanderClick,
     TaskListHeader,

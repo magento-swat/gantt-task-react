@@ -11,6 +11,7 @@ export type GridBodyProps = {
   columnWidth: number;
   todayColor: string;
   rtl: boolean;
+  marginTop: number;
 };
 export const GridBody: React.FC<GridBodyProps> = ({
   tasks,
@@ -20,8 +21,9 @@ export const GridBody: React.FC<GridBodyProps> = ({
   columnWidth,
   todayColor,
   rtl,
+  marginTop,
 }) => {
-  let y = 0;
+  let y = marginTop;
   const gridRows: ReactChild[] = [];
   const rowLines: ReactChild[] = [
     <line
@@ -33,14 +35,28 @@ export const GridBody: React.FC<GridBodyProps> = ({
       className={styles.gridRowLine}
     />,
   ];
+  let i = 0;
+  let tasksLength = tasks.length;
   for (const task of tasks) {
+    let yTmp = y;
+    let tmpHeight = rowHeight;
+    if (i === 0) {
+      //set first row rectangle y to 0 to fill first row completely including marginTop
+      yTmp = 0;
+      tmpHeight = rowHeight + marginTop;
+    }
+    // set last row to fill margin
+    if (i === (tasksLength - 1)) {
+      tmpHeight = rowHeight + marginTop;
+    }
+    i++;
     gridRows.push(
       <rect
         key={"Row" + task.id}
         x="0"
-        y={y}
+        y={yTmp}
         width={svgWidth}
-        height={rowHeight}
+        height={tmpHeight}
         className={styles.gridRow}
       />
     );
